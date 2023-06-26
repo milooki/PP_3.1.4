@@ -65,6 +65,7 @@
                                     <th>name</th>
                                     <th>lastName</th>
                                     <th>age</th>
+                                    <th>role</th>
                                     <th>Update</th>
                                     <th>Delete</th>
                                 </tr>
@@ -74,6 +75,7 @@
                                     <td th:text="${user.getName}"></td>
                                     <td th:text="${user.getLastName}"></td>
                                     <td th:text="${user.getAge}"></td>
+                                    <td th:text="${user.getAllRolesAsString}"></td>>
                                     <td>
                                         <button class="btn btn-info" data-bs-toggle="modal"
                                                 th:data-bs-target="${'#eMdl'+ user.getId}"
@@ -126,13 +128,11 @@
                                                             <div class="mb-3">
                                                                 <label class="container-fluid "
                                                                        for="rolesUpdate">Role</label>
-                                                                <select class="form-control"
-                                                                        id="rolesUpdate"
-                                                                        name="roles" multiple>
-                                                                    <option th:each="role : ${listOfRoles}"
-                                                                            th:value="${role.getId()}"
-                                                                            th:text="${role.getName()}">Role name
-                                                                    </option>
+                                                                <select class="form-control form-control-sm" id="rolesUpdate" name="roles" multiple
+                                                                        th:value="${user.getRoles}"
+                                                                        style="height: 50px; width: 300px; margin: 0 auto">
+                                                                    <option value="1">USER</option>
+                                                                    <option selected="selected" value="2">ADMIN</option>
                                                                 </select>
                                                             </div>
                                                         </div>
